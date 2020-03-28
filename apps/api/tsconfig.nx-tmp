@@ -1,0 +1,20 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../dist/out-tsc",
+    "types": [
+      "node"
+    ],
+    "paths": {
+      "@nx-workspaces-course/ui-header": [
+        "libs/ui-header/src/index.ts"
+      ]
+    }
+  },
+  "exclude": [
+    "**/*.spec.ts"
+  ],
+  "include": [
+    "**/*.ts"
+  ]
+}
