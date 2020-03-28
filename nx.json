@@ -26,6 +26,13 @@
     },
     "api-interface": {
       "tags": []
+    },
+    "review": {
+      "tags": []
+    },
+    "review-e2e": {
+      "tags": [],
+      "implicitDependencies": ["review"]
     }
   }
 }

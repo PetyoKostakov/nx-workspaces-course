@@ -8,6 +8,9 @@
     "paths": {
       "@nx-workspaces-course/ui-header": [
         "libs/ui-header/src/index.ts"
+      ],
+      "@nx-workspaces-course/api-interface": [
+        "libs/api-interface/src/index.ts"
       ]
     }
   },
