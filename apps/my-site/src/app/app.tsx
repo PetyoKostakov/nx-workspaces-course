@@ -7,12 +7,13 @@ import star from './star.svg';
 
 import { Route, Link } from 'react-router-dom';
 import { PageTitle } from '@nx-workspaces-course/ui-header';
+import { API_URL, ApiResponse } from '@nx-workspaces-course/api-interface';
 
 export const App = () => {
 
-  const  [apiResponse, setApiResponse] = useState({message: 'loading...'});
+  const  [apiResponse, setApiResponse] = useState<ApiResponse>({message: 'loading...'});
   useEffect(() => {
-    fetch('/api').then(r => r.json()).then(setApiResponse);
+    fetch(API_URL).then(r => r.json()).then(setApiResponse);
   }, []);
 
   /*
