@@ -17,7 +17,24 @@
     "baseUrl": ".",
     "paths": {
       "@nx-workspaces-course/ui-header": ["libs/ui-header/src/index.ts"],
-      "@nx-workspaces-course/api-interface": ["libs/api-interface/src/index.ts"]
+      "@nx-workspaces-course/api-interface": [
+        "libs/api-interface/src/index.ts"
+      ],
+      "@nx-workspaces-course/review/ui-tile": [
+        "libs/review/ui-tile/src/index.ts"
+      ],
+      "@nx-workspaces-course/review/util-formatters": [
+        "libs/review/util-formatters/src/index.ts"
+      ],
+      "@nx-workspaces-course/review/data-access-games": [
+        "libs/review/data-access-games/src/index.ts"
+      ],
+      "@nx-workspaces-course/review/feature-list": [
+        "libs/review/feature-list/src/index.ts"
+      ],
+      "@nx-workspaces-course/review/feature-details": [
+        "libs/review/feature-details/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

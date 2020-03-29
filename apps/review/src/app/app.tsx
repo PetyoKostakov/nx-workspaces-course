@@ -4,8 +4,13 @@ import './app.css';
 
 import { ReactComponent as Logo } from './logo.svg';
 
-import { Route, Link } from 'react-router-dom';
-import { API_URL, ApiResponse, Game } from '@nx-workspaces-course/api-interface';
+import { Route, Link, BrowserRouter } from 'react-router-dom';
+import { API_URL, ApiResponse, Game, Review } from '@nx-workspaces-course/api-interface';
+import * as path from 'path';
+import { exact } from 'prop-types';
+import { stringify } from 'querystring';
+import { ReviewFeatureDetails } from '@nx-workspaces-course/review/feature-details';
+import { ReviewFeatureList } from '@nx-workspaces-course/review/feature-list';
 
 export const App = () => {
   const  [apiResponse, setApiResponse] = useState<ApiResponse>({message: 'loading...'});
@@ -23,7 +28,19 @@ export const App = () => {
    * Note: The corresponding styles are in the ./app.css file.
    */
   return (
-    <div className="app">
+    <>
+      <BrowserRouter basename="/review">
+        <h1 style={{ textAlign: 'center' }}>Board Game Hoard: Review</h1>
+        <Route exact path="/" render={() => <ReviewFeatureList />} />
+        <Route
+          path="/:game"
+          render={({ match }) => (
+            <ReviewFeatureDetails gameId={match.params.game} />
+          )}
+        />
+      </BrowserRouter>
+    </>
+    /*<div className="app">
       <header className="flex">
         <Logo width="75" height="75" />
         <h1>Board Game Hoard: Review</h1>
@@ -34,9 +51,9 @@ export const App = () => {
         <pre>{ JSON.stringify(games) }</pre>
       </main>
 
-      {/* START: routes */}
-      {/* These routes and navigation have been generated for you */}
-      {/* Feel free to move and update them to fit your needs */}
+      {/!* START: routes *!/}
+      {/!* These routes and navigation have been generated for you *!/}
+      {/!* Feel free to move and update them to fit your needs *!/}
       <br />
       <hr />
       <br />
@@ -69,8 +86,8 @@ export const App = () => {
           </div>
         )}
       />
-      {/* END: routes */}
-    </div>
+      {/!* END: routes *!/}
+    </div>*/
   );
 };
 
