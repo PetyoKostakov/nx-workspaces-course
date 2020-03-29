@@ -3,15 +3,19 @@ import React, { useEffect, useState } from 'react';
 import './app.css';
 
 import { ReactComponent as Logo } from './logo.svg';
-import star from './star.svg';
 
 import { Route, Link } from 'react-router-dom';
-import { API_URL, ApiResponse } from '@nx-workspaces-course/api-interface';
+import { API_URL, ApiResponse, Game } from '@nx-workspaces-course/api-interface';
 
 export const App = () => {
   const  [apiResponse, setApiResponse] = useState<ApiResponse>({message: 'loading...'});
   useEffect(() => {
     fetch(API_URL).then(r => r.json()).then(setApiResponse);
+  }, []);
+
+  const [games, setGames] = useState<Game[]>([]);
+  useEffect(() => {
+    fetch('/api/game').then(r => r.json()).then(setGames);
   }, []);
   /*
    * Replace the elements below with your own.
@@ -22,10 +26,12 @@ export const App = () => {
     <div className="app">
       <header className="flex">
         <Logo width="75" height="75" />
-        <h1>Welcome to review!</h1>
+        <h1>Board Game Hoard: Review</h1>
       </header>
       <main>
-        <p>{ apiResponse.message }</p>
+        <p>{ JSON.stringify(apiResponse.message) }</p>
+
+        <pre>{ JSON.stringify(games) }</pre>
       </main>
 
       {/* START: routes */}
